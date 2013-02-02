@@ -2,33 +2,27 @@
 	h1(class="insetType")	Spantons
 	#registrar_container
 		form(id="form-registrar")
-			div(style="float:left;")
-				table
-					tr
-						td
-							font(size="6", class="font_b campos_titulos")	Nombre 
-					tr
-						td
-							font(size="6", class="font_b campos_titulos")	Email 
-					tr
-						td
-							font(size="6", class="font_b campos_titulos")	Cedula
-					tr
-						td
-							font(size="5", class="font_b campos_titulos")	Tamaño
-					tr
-						td
-							font(size="6", class="font_b campos_titulos")	Contraseña
+			div(style="float:left;padding: 5px;")
+				.campos_titulos
+					font(size="5", class="font_b")	Nombre y Apellido	
+				.campos_titulos
+					font(size="5", class="font_b campos_titulos")	Correo electronico
+				.campos_titulos
+					font(size="5", class="font_b campos_titulos")	Cedula
+				.campos_titulos
+					font(size="5", class="font_b campos_titulos")	Contraseña
+				.campos_titulos
+					font(size="5", class="font_b campos_titulos")	Repite contraseña
 			div(style="float:left")
-				input(id="create_product_nombre", name="create_product_nombre", type="text", value="", class="campos border_top_6 campos_top")
+				input(id="registrar_nombre", name="registrar_nombre", type="text", value="", class="campos border_top_6 campos_top")
 				br
-				input(id="create_product_cantidad_inicial", name="create_product_cantidad_inicial", type="text", value="", class="campos campos_middle")
+				input(id="registrar_email", name="registrar_email", type="text", value="", class="campos campos_middle")
 				br
-				input(id="create_product_peso", name="create_product_peso", type="text", value="", class="campos campos_middle")
+				input(id="registrar_cedula", name="registrar_cedula", type="text", value="", class="campos campos_middle")
 				br
-				input(id="create_product_tamano", name="create_product_tamano", type="text", value="", class="campos campos_middle")
+				input(id="registrar_pass", name="registrar_pass", type="password", value="", class="campos campos_middle")
 				br
-				input(id="create_product_precio", name="create_product_precio", type="text", value="", class="campos border_bottom_6 campos_bottom")
+				input(id="registrar_pass_repeat", name="registrar_pass_repeat", type="password", value="", class="campos border_bottom_6 campos_bottom")
 			<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 			.button_wrapper(align="center")
 				.button_underneath(style="width:162px;height:14px")

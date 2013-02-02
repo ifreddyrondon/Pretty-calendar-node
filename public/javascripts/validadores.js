@@ -5,12 +5,14 @@ $(document).ready(function(){
 			document.getElementById(id).style.backgroundImage="url('images/check.png')";
 	  	document.getElementById(id).style.backgroundRepeat="no-repeat";
 	  	document.getElementById(id).style.backgroundPosition="right center";
+	  	document.getElementById(id).style.backgroundColor="transparent";
 	  	return true;
 		}
 		else{
 			document.getElementById(id).style.backgroundImage="url('images/false.png')";
 	  	document.getElementById(id).style.backgroundRepeat="no-repeat";
 	  	document.getElementById(id).style.backgroundPosition="right center";
+	  	document.getElementById(id).style.backgroundColor="rgba(253,160,160,0.43)";
 	  	return false;
 		}
 	}

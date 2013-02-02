@@ -31,6 +31,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.post('/', alluser.login);
 app.post('/registrar', alluser.registrar);
 
 http.createServer(app).listen(app.get('port'), function(){

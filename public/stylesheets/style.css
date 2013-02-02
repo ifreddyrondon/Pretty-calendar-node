@@ -20,15 +20,15 @@ h4.insetType{font-family: Rockwell, Georgia, "Times New Roman", Times, serif;col
 .ipt_login{height:30px;width:220px;background:transparent;padding: 7px;padding-left:30px;
 font-size:16px;font-family: Rockwell, Georgia, "Times New Roman", Times, serif;color: #000000;text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;border-style:groove;border-width:0px;outline:none}
 #login_container{margin:auto;left:0;right:0;top:0;bottom:0;position:absolute;width:300px;height:200px;text-align:center}
-#registrar_container{margin:auto;left:0;right:0;top:0;bottom:0;position:absolute;width:450px;height:200px;text-align:center;}
+#registrar_container{margin:auto;left:0;right:0;top:0;bottom:0;position:absolute;width:500px;height:240px;text-align:center;
+/*	box-shadow: 0px 0px 5px #000000;*/
+}
 /*------BORDERS ---------------------------------------------*/
 .border_top_6{-webkit-border-top-left-radius: 6px;-webkit-border-top-right-radius: 6px;-moz-border-radius-topleft: 6px;-moz-border-radius-topright: 6px;border-top-left-radius: 6px;border-top-right-radius: 6px}
 .border_bottom_6{-webkit-border-bottom-right-radius: 6px;-webkit-border-bottom-left-radius: 6px;-moz-border-radius-bottomright: 6px;-moz-border-radius-bottomleft: 6px;border-bottom-right-radius: 6px;border-bottom-left-radius: 6px}
 .border_campos{-webkit-border-radius:16px;-moz-border-radius:16px;border-radius:16px}
 /*---CAMPOS--------------------------*/
-
-.campos_titulos{padding-bottom: 12px; }
-
+.campos_titulos{padding:4px}
 .campos_top{-webkit-box-shadow: inset 0px 3px 2px 2px #111;}
 .campos_middle{-moz-box-shadow:inset 5px 3px 2px -3px #111,inset -5px 0px 2px -3px #111;-webkit-box-shadow:inset 5px 3px 2px -3px #111,inset -5px 0px 2px -3px #111;box-shadow:inset 5px 3px 2px -3px #111,inset -5px 0px 2px -3px #111;}
 .campos_bottom{-webkit-box-shadow:inset 0px -2px 2px 2px #111;-moz-box-shadow:inset 0px -2px 2px 2px #111;box-shadow:inset 0px -2px 2px 2px #111;}
@@ -52,7 +52,7 @@ font-size:16px;font-family: Rockwell, Georgia, "Times New Roman", Times, serif;c
 .squaredThree label:hover::after{-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";filter: alpha(opacity=30);opacity: 0.3;}
 .squaredThree input[type=checkbox]:checked + label:after {-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";filter: alpha(opacity=100);opacity: 1;}
 /*----LOADER-------------*/
-#bowlG{position:absolute;width:100px;height:100px;margin: auto;left:0; right:0;top:0; bottom:0;z-index: 1000;display:none}
+#bowlG{position:absolute;width:100px;height:100px;margin: auto;left:0; right:0;top:0; bottom:0;z-index:1000;display:none}
 #bowl_ringG{position:absolute;width:100px;height:100px;border:9px solid #000000;-moz-border-radius:100px;-webkit-border-radius:100px;-ms-border-radius:100px;-o-border-radius:100px;border-radius:100px;}
 .ball_holderG{position:absolute;width:27px;height:100px;left:37px;top:0px;-moz-animation-name:ball_moveG;-moz-animation-duration:1.2s;-moz-animation-iteration-count:infinite;-moz-animation-timing-function:linear;-webkit-animation-name:ball_moveG;-webkit-animation-duration:1.2s;-webkit-animation-iteration-count:infinite;-webkit-animation-timing-function:linear;-ms-animation-name:ball_moveG;-ms-animation-duration:1.2s;-ms-animation-iteration-count:infinite;-ms-animation-timing-function:linear;-o-animation-name:ball_moveG;-o-animation-duration:1.2s;-o-animation-iteration-count:infinite;-o-animation-timing-function:linear;animation-name:ball_moveG;animation-duration:1.2s;animation-iteration-count:infinite;animation-timing-function:linear;}
 .ballG{position:absolute;left:0px;top:-23px;width:40px;height:40px;background:#FFFFFF;-moz-border-radius:33px;-webkit-border-radius:33px;-ms-border-radius:33px;-o-border-radius:33px;border-radius:33px;}
