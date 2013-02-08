@@ -4,3 +4,7 @@ exports.login = function(req, res){
 exports.registrar = function(req, res){
 	res.render('registrar');
 }
+exports.disponibilidad = function(req, res){
+	console.log(req.body.email);
+	res.send(0);
+}

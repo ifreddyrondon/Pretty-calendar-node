@@ -7,10 +7,11 @@ input[type=checkbox]{visibility: hidden}
 #footer_left{position:absolute;left:5px}#footer_right{position: absolute;right:3px}
 #registrar_link{position:absolute;right:50px;top:30px}
 /*------FONT ---------------------------------------------------*/
-h1.insetType {padding-left: 50px;padding-top: 17px;font-family: Rockwell, Georgia, "Times New Roman", Times, serif;font-size: 50px;color: rgba(0,0,0,0.5);text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;}
-h4.insetType{font-family: Rockwell, Georgia, "Times New Roman", Times, serif;color: #000000;text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px}
-.font{color: #000000;text-shadow:0px 1px 0px rgba(101,101,101,0.6);font-family: monospace;font-weight: 100;	}
-.font_b, #login_reg_container a{color: #000000;text-shadow:0px 1px 0px rgba(101,101,101,0.6);font-family: monospace;font-weight: bold;	}
+h1.insetType{padding-left:50px;padding-top:17px;font-family:Rockwell,Georgia,"Times New Roman",Times,serif;font-size: 50px;color:rgba(0,0,0,0.5);text-shadow:rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;}
+h3.insetType{font-family:Rockwell,Georgia,"Times New Roman",Times,serif;color:rgba(0,0,0,0.5);text-shadow:rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px,rgba(255,255,255,0.5) 0 1px,rgba(0,0,0,0.3) -1px -2px}
+h4.insetType{font-family:Rockwell,Georgia,"Times New Roman",Times,serif;color:rgba(0,0,0,0.5);text-shadow:rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px,rgba(255,255,255,0.5) 0 1px,rgba(0,0,0,0.3) -1px -2px}
+.font{color:#000000;text-shadow:0px 1px 0px rgba(101,101,101,0.6);font-family: monospace;font-weight:100;}
+.font_b, #login_reg_container a{color:#000000;text-shadow:0px 1px 0px rgba(101,101,101,0.6);font-family: monospace;font-weight:bold;}
 #login_reg_container a:hover, a:focus{color:#d7d7d7;font-weight:100;font-family:monospace;text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3)}
 /*-----LOGIN input css & container input, REGISTRAR-container ----------------------*/
 #login_pass{display:none}
@@ -20,7 +21,7 @@ h4.insetType{font-family: Rockwell, Georgia, "Times New Roman", Times, serif;col
 .ipt_login{height:30px;width:220px;background:transparent;padding: 7px;padding-left:30px;
 font-size:16px;font-family: Rockwell, Georgia, "Times New Roman", Times, serif;color: #000000;text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;border-style:groove;border-width:0px;outline:none}
 #login_container{margin:auto;left:0;right:0;top:0;bottom:0;position:absolute;width:300px;height:200px;text-align:center}
-#registrar_container{margin:auto;left:0;right:0;top:0;bottom:0;position:absolute;width:500px;height:240px;text-align:center;
+#registrar_container{margin:auto;left:0;right:0;top:0;bottom:0;position:absolute;width:460px;height:240px;text-align:center;
 /*	box-shadow: 0px 0px 5px #000000;*/
 }
 /*------BORDERS ---------------------------------------------*/
@@ -33,7 +34,7 @@ font-size:16px;font-family: Rockwell, Georgia, "Times New Roman", Times, serif;c
 .campos_middle{-moz-box-shadow:inset 5px 3px 2px -3px #111,inset -5px 0px 2px -3px #111;-webkit-box-shadow:inset 5px 3px 2px -3px #111,inset -5px 0px 2px -3px #111;box-shadow:inset 5px 3px 2px -3px #111,inset -5px 0px 2px -3px #111;}
 .campos_bottom{-webkit-box-shadow:inset 0px -2px 2px 2px #111;-moz-box-shadow:inset 0px -2px 2px 2px #111;box-shadow:inset 0px -2px 2px 2px #111;}
 .campos{width:150px;padding:6px 15px 6px 35px;height:20px;border-style:groove;border-width:0px;background-color:transparent;outline:none;font:100 12px Arial,Helvetica,Sans-serif;color:#000000;text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);-webkit-transition: all 0.7s ease 0s;-moz-transition: all 0.7s ease 0s;-o-transition: all 0.7s ease 0s;transition: all 0.7s ease 0s;}
-.campos:focus {color:#222222;width: 200px;text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);}
+.campos:focus{color:#222222;width:165px;text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);}
 /*---BOTON---------------------------*/
 .button_wrapper {	width: 100%;	float: left	}
 .button, .button_underneath {	font-weight: bold;	font-family: "Lobster", cursive;	font-size: 15px;	}
@@ -61,3 +62,5 @@ font-size:16px;font-family: Rockwell, Georgia, "Times New Roman", Times, serif;c
 @-ms-keyframes ball_moveG{0%{-ms-transform:rotate(0deg)}100%{-ms-transform:rotate(360deg)}}
 @-o-keyframes ball_moveG{0%{-o-transform:rotate(0deg)}100%{-o-transform:rotate(360deg)}}
 @keyframes ball_moveG{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+/*---ERRORES--------------------------*/
+.error{font-family:Rockwell,Georgia,"Times New Roman",Times,serif;color:#000000;text-shadow:rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px,rgba(255,255,255,0.5) 0 1px,rgba(0,0,0,0.3) -1px -2px}
