@@ -168,7 +168,7 @@ $(document).ready(function(){
 	    success: function(res){
 	    	$("#bowlG").hide();
 	    	if (res == '1')
-	      	alert("error");
+	      	errorHandler(id);
 	    	else 
 	        $("#wrapper").html(res);
 			}
@@ -195,4 +195,12 @@ $(document).ready(function(){
 	window.ajaxDatos=ajaxDatos;	
 	window.ajaxDatosReload=ajaxDatosReload;		
 	window.focusEmpty=focusEmpty;	
+
+	function errorHandler(id){
+		if(id=="form-login")	stringHandlerError = "Puedes entrar con cualquier dirección de correo electrónico. Por favor, asegúrate de escribir los datos correctamente..";
+		
+		if(document.getElementById(id+'-error') == null)
+	  		$('.error').append('<div id="'+id+'-error"><font size="5">* </font>'+stringHandlerError+'</div>');
+	}
+	window.errorHandler=errorHandler;	
 });

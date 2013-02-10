@@ -1,0 +1,10 @@
+.link_right_top_user_container
+	table
+		tr
+			td
+				a(href="#perfil", style="font-size:17px")
+					img(id="user_picture_micro", src="images/user/#{sesion.id}.micro.jpg", onerror="this.src='images/user.png'")
+			td
+				a(href="#perfil", style="font-size:17px")	#{sesion.nombre} | 
+			td
+				a(href="logout", style="font-size:14px;font-weight:100")	Desconectarse

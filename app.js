@@ -31,6 +31,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.get('/logout', user.logout);
 app.post('/', alluser.login);
 app.post('/registrar', alluser.registrar);
 app.post('/registrarSend', alluser.registrarSend);

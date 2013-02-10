@@ -8,11 +8,10 @@ $(document).ready(function(){
 		if($('#login_user').val()!='Correo/Email' && $('#login_pass_temp').css("display")=="none" && validator("correo","IsCorreo","login_user")){
 			$(document.getElementById("err_btn_login")).remove();
 			$("#login_pass").val(CryptoJS.SHA512($('#login_pass').val()));
-			ajaxDatosReload("/loginSend","form-login");
+			ajaxDatos("/loginSend","form-login");
 		}
 		else{
-			if(document.getElementById("err_btn_login") == null)
-				$('.error').append('<div id="err_btn_login"><font size="5">* </font>Puedes entrar con cualquier dirección de correo electrónico. Por favor, asegúrate de escribir los datos correctamente..</div>');
+			errorHandler('form-login');
 			return false;
 		}
 	});

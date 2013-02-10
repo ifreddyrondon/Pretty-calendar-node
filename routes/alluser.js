@@ -133,7 +133,7 @@ exports.loginSend = function(req, res){
 		pass= crypto.createHash('sha256').update(pass).digest("hex");
 		pass= pass.substr(0,1)+"u"+pass.substr(2,pass.length/2)+"se"+pass.substr(pass.length/2)+"r";
 		
-		objBD.query("SELECT id_persona, tipo FROM persona WHERE email = "+ objBD.escape(login_user) +" AND password = "+ objBD.escape(pass) +"",
+		objBD.query("SELECT id_persona, nombre, tipo FROM persona WHERE email = "+ objBD.escape(login_user) +" AND password = "+ objBD.escape(pass) +"",
 		function(err, rows, fields) {
 	    if (err){
 				objBD.end();
@@ -143,17 +143,17 @@ exports.loginSend = function(req, res){
 		    if (rows.length == 1){
 					var user = {
 	        	id: rows[0]['id_persona'],
+	        	nombre: rows[0]['nombre'],
 	        	tipo: rows[0]['tipo'],
 	        };
 	        req.session.regenerate(function(){
 			      req.session.user = user;
-			      //res.send('0'); 
-			      console.log("LOGUEADO");
+			      res.render('layout', { sesion: req.session.user });
 		      });
 		      objBD.end();
 				}
 				else
-					console.log("INVALIDO");
+					res.send('1');
 			}  
 		});							
 	} catch (e) {

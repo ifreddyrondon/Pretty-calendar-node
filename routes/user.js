@@ -1,8 +1,9 @@
 
-/*
- * GET users listing.
- */
-
-exports.list = function(req, res){
-  res.send("respond with a resource");
-};
+exports.logout = function(req, res){
+	if (req.session.user){
+		req.session.destroy(function(err){
+	 	if (err)	res.send('A ocurrido un error, vuelva a intentarlo mas tarde');
+	  else	res.redirect('/');
+	  });
+	}
+}

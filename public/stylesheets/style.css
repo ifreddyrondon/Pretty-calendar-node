@@ -5,14 +5,17 @@ input[type=checkbox]{visibility: hidden}
 #wrapper{position:absolute;overflow:auto;left:0;right:0;top:0;bottom:0;box-shadow:inset 0 0 490px black;background:url('../images/bg.jpg')}
 #footer {position:absolute;bottom:0;width:100%;height:20px;}
 #footer_left{position:absolute;left:5px}#footer_right{position: absolute;right:3px}
-#registrar_link{position:absolute;right:50px;top:30px}
+.link_right_top_container{position:absolute;right:50px;top:30px}
+.link_right_top_user_container{position:absolute;right:40px;top:8px}
+#user_container{width:95%;height:90%;position:absolute;overflow:auto;left:0;right:0;top:12px;bottom:0;margin: auto;
+background:url('../images/_bg7.png');box-shadow:inset 0 0px 6px 2px #000000;}
 /*------FONT ---------------------------------------------------*/
 h1.insetType{padding-left:50px;padding-top:17px;font-family:Rockwell,Georgia,"Times New Roman",Times,serif;font-size: 50px;color:rgba(0,0,0,0.5);text-shadow:rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;}
 h3.insetType{font-family:Rockwell,Georgia,"Times New Roman",Times,serif;color:rgba(0,0,0,0.5);text-shadow:rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px,rgba(255,255,255,0.5) 0 1px,rgba(0,0,0,0.3) -1px -2px}
 h4.insetType{font-family:Rockwell,Georgia,"Times New Roman",Times,serif;color:rgba(0,0,0,0.5);text-shadow:rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px,rgba(255,255,255,0.5) 0 1px,rgba(0,0,0,0.3) -1px -2px}
 .font{color:#000000;text-shadow:0px 1px 0px rgba(101,101,101,0.6);font-family: monospace;font-weight:100;}
-.font_b, #login_reg_container a{color:#000000;text-shadow:0px 1px 0px rgba(101,101,101,0.6);font-family: monospace;font-weight:bold;}
-#login_reg_container a:hover, a:focus{color:#d7d7d7;font-weight:100;font-family:monospace;text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3)}
+.font_b, a{color:#000000;text-shadow:0px 1px 0px rgba(101,101,101,0.6);font-family: monospace;font-weight:bold;}
+a:hover, a:focus{color:#d7d7d7;font-weight:100;font-family:monospace;text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3)}
 /*-----LOGIN input css & container input, REGISTRAR-container ----------------------*/
 #login_pass{display:none}
 /* LOGIN input shadow inner */
@@ -28,6 +31,7 @@ font-size:16px;font-family: Rockwell, Georgia, "Times New Roman", Times, serif;c
 .border_top_6{-webkit-border-top-left-radius: 6px;-webkit-border-top-right-radius: 6px;-moz-border-radius-topleft: 6px;-moz-border-radius-topright: 6px;border-top-left-radius: 6px;border-top-right-radius: 6px}
 .border_bottom_6{-webkit-border-bottom-right-radius: 6px;-webkit-border-bottom-left-radius: 6px;-moz-border-radius-bottomright: 6px;-moz-border-radius-bottomleft: 6px;border-bottom-right-radius: 6px;border-bottom-left-radius: 6px}
 .border_campos{-webkit-border-radius:16px;-moz-border-radius:16px;border-radius:16px}
+.border_user{-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
 /*---CAMPOS--------------------------*/
 .campos_titulos{padding:4px}
 .campos_top{-webkit-box-shadow: inset 0px 3px 2px 2px #111;}
