@@ -34,7 +34,9 @@ app.get('/', routes.index);
 app.post('/', alluser.login);
 app.post('/registrar', alluser.registrar);
 app.post('/registrarSend', alluser.registrarSend);
-app.post('/disponibilidad', alluser.disponibilidad);
+app.post('/disponibilidad/email', alluser.disponibilidadEmail);
+app.post('/disponibilidad/ci', alluser.disponibilidadCi);
+app.post('/loginSend', alluser.loginSend);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

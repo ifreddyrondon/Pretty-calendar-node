@@ -3,13 +3,10 @@ var BD = require('../BD')
 	, check = require('validator').check
 	, crypto = require('crypto');
 
-exports.login = function(req, res){
-	res.render('login');
-}
 exports.registrar = function(req, res){
 	res.render('registrar');
 }
-exports.disponibilidad = function(req, res){
+exports.disponibilidadEmail = function(req, res){
 	objBD = BD.BD();
 	objBD.connect();
 	try {
@@ -39,7 +36,38 @@ exports.disponibilidad = function(req, res){
 	  console.log(e.message);
 	}
 }
+exports.disponibilidadCi = function(req, res){
+	objBD = BD.BD();
+	objBD.connect();
+	try {
+		check(req.body.cedula).notNull().len(7, 10);
+		ci = sanitize(req.body.cedula).trim(); 	
+		ci = sanitize(ci).xss();
+		ci = sanitize(ci).entityDecode();
+		objBD.query("SELECT cedula FROM persona WHERE cedula = "+ objBD.escape(ci) +"", 
+		function(err, rows, fields) {
+	    if (err){
+				objBD.end();
+				res.send('1'); 
+			}
+	    else {
+		    if (rows.length > 0){
+					objBD.end();
+					res.send('1'); 
+				}
+		    else{
+			  	res.send('0'); 
+			  	objBD.end();
+		    }	
+	    }
+	  });
+	} catch (e) {
+	  res.send('1'); 
+	  console.log(e.message);
+	}
+}
 exports.registrarSend = function(req, res){
+	objBD = BD.BD();
 	objBD.connect();
 	try {
     check(req.body.registrar_nombre).notNull();
@@ -79,6 +107,55 @@ exports.registrarSend = function(req, res){
 		  }
 		});
 		
+	} catch (e) {
+	  res.send('1'); 
+	  console.log(e.message);
+	}
+}
+exports.login = function(req, res){
+	res.render('login');
+}
+exports.loginSend = function(req, res){
+	objBD = BD.BD();
+	objBD.connect();
+	try {
+	  check(req.body.login_user).notNull().len(6, 64).isEmail();
+	  check(req.body.login_pass).notNull();
+		
+		login_user = sanitize(req.body.login_user).trim(); 	
+		login_user = sanitize(login_user).xss();
+		login_user = sanitize(login_user).entityDecode();
+				
+		pass = sanitize(req.body.login_pass).trim(); 	
+		pass = sanitize(pass).xss();
+		pass = sanitize(pass).entityDecode();
+		
+		pass= crypto.createHash('sha256').update(pass).digest("hex");
+		pass= pass.substr(0,1)+"u"+pass.substr(2,pass.length/2)+"se"+pass.substr(pass.length/2)+"r";
+		
+		objBD.query("SELECT id_persona, tipo FROM persona WHERE email = "+ objBD.escape(login_user) +" AND password = "+ objBD.escape(pass) +"",
+		function(err, rows, fields) {
+	    if (err){
+				objBD.end();
+				res.send('1'); 
+			}							
+	    else {
+		    if (rows.length == 1){
+					var user = {
+	        	id: rows[0]['id_persona'],
+	        	tipo: rows[0]['tipo'],
+	        };
+	        req.session.regenerate(function(){
+			      req.session.user = user;
+			      //res.send('0'); 
+			      console.log("LOGUEADO");
+		      });
+		      objBD.end();
+				}
+				else
+					console.log("INVALIDO");
+			}  
+		});							
 	} catch (e) {
 	  res.send('1'); 
 	  console.log(e.message);

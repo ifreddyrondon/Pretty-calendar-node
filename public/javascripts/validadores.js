@@ -30,6 +30,7 @@ $(document).ready(function(){
 		ci = true;
 		formatoImagen = true;
 	  correo = true;
+	  correo_formato = true;
 	  minimo = true;
 		funciones = funciones.split(',');
 		for(i=0;i<funciones.length;i++){
@@ -39,6 +40,8 @@ $(document).ready(function(){
 				number = IsNumeric(document.getElementById(id));
 			if(funciones[i]=='formatImage')
 				number = formatImage(document.getElementById(id));
+			if(funciones[i]=='IsCorreo')
+				correo_formato = validaCorreo(document.getElementById(id).value);		
 			if(funciones[i]=='CorreoAvailability')
 				correo = CorreoAvailability(document.getElementById(id));		
 			if(funciones[i]=='min')
@@ -46,7 +49,7 @@ $(document).ready(function(){
 			if(funciones[i]=='ci')
 				ci = IsCi(document.getElementById(id));		
 		}
-		return empty && number && formatoImagen && correo && minimo && ci;	
+		return empty && number && formatoImagen && correo && correo_formato && minimo && ci;	
 	}
   window.validator=validator;
 //Funciones-validadoras--------------------------------------------------------------------
@@ -75,19 +78,12 @@ $(document).ready(function(){
   }
   function IsCi(el){
   	RE = /^([V|E|v|e])([0-9]{5,8})$/;
-  	return RE.test(el.value);
-  }
-  function validaCorreo(valor) {
-		var expresion = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-		return expresion.test(valor);
-	}
-	function CorreoAvailability(el){
-		if(validaCorreo(el.value)){
-			correo_data = 'email='+ el.value;
-			$.ajax({
+  	if(RE.test(el.value)){
+	  	ci_data = 'cedula='+ el.value;
+	  	$.ajax({
 				type: "POST",
-				url: "/disponibilidad",
-				data: correo_data,
+				url: "/disponibilidad/ci",
+				data: ci_data,
 				async: false,
 				beforeSend: function(){
 				  //$("#btn_update_enviar").attr("disabled", true);
@@ -95,20 +91,51 @@ $(document).ready(function(){
 				  el.style.backgroundRepeat="no-repeat";
 				  el.style.backgroundPosition="right center";
 				},
-				success: function( respuesta_correo ){
+				success: function( respuesta_ci ){
 					//$("#btn_update_enviar").attr("disabled", false);
-					if(respuesta_correo == '1'){
-						resCorreo = false; 
-						error = "Ya existe ese Email. ¿Quieres volver a intentarlo?";
+					if(respuesta_ci == '1'){
+						resCi = false; 
+						error = "Ya existe esa Cedula. ¿Quieres volver a intentarlo?";
 					}
-					else if(respuesta_correo == '0')
-						resCorreo = true;
+					else if(respuesta_ci == '0')
+						resCi = true;
 				}
 			});
-			return resCorreo;
+			return resCi;
+  	}
+  	else return false;
+  }
+  function validaCorreo(valor) {
+		var expresion = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+		return expresion.test(valor);
+	}
+	function CorreoAvailability(el){
+		if(validaCorreo(el.value)){
+			email_data = 'email='+ el.value;
+			$.ajax({
+				type: "POST",
+				url: "/disponibilidad/email",
+				data: email_data,
+				async: false,
+				beforeSend: function(){
+				  //$("#btn_update_enviar").attr("disabled", true);
+				  el.style.backgroundImage="url('images/loader.gif')";
+				  el.style.backgroundRepeat="no-repeat";
+				  el.style.backgroundPosition="right center";
+				},
+				success: function( respuesta_email ){
+					//$("#btn_update_enviar").attr("disabled", false);
+					if(respuesta_email == '1'){
+						resEmail = false; 
+						error = "Ya existe ese Email. ¿Quieres volver a intentarlo?";
+					}
+					else if(respuesta_email == '0')
+						resEmail = true;
+				}
+			});
+			return resEmail;
 		}
-		else 
-			return false;	
+		else return false;	
 	}
 //----AJAX----------------------------------------------------------------------------------
 	function ajaxNormal(url,datos,reload){

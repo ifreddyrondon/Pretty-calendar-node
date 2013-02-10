@@ -1,16 +1,18 @@
 $(document).ready(function(){
 	//Login
 	$(document).on("focus","#login_user",function(){focusEmpty('login_user')});
-	$(document).on("blur","#login_user",function(){if(this.value =='') this.value='Correo/Email'});
+	$(document).on("blur","#login_user",function(){if(this.value =='') this.value='Correo/Email'; else validator("correo","IsCorreo",$(this).attr('id'))});
 	$(document).on("focus","#login_pass_temp",function(){$('#login_pass_temp').hide();$('#login_pass').show();$("#login_pass").focus();});
 	$(document).on("blur","#login_pass",function(){if(this.value ==''){$('#login_pass').hide();$('#login_pass_temp').show();}});
 	$(document).on("click","#login_enviar",function(){
-		if($('#login_user').val()!='Correo/Email' && $('#login_pass_temp').css("display")=="none"){
-			$('.error').hide();
+		if($('#login_user').val()!='Correo/Email' && $('#login_pass_temp').css("display")=="none" && validator("correo","IsCorreo","login_user")){
+			$(document.getElementById("err_btn_login")).remove();
+			$("#login_pass").val(CryptoJS.SHA512($('#login_pass').val()));
+			ajaxDatosReload("/loginSend","form-login");
 		}
 		else{
 			if(document.getElementById("err_btn_login") == null)
-				$('.error').append('<div id="err_btn_login"><font size="5">* </font>Puedes entrar con cualquier dirección de correo electrónico. Por favor, asegúrate de escribirlos correctamente..</div>');
+				$('.error').append('<div id="err_btn_login"><font size="5">* </font>Puedes entrar con cualquier dirección de correo electrónico. Por favor, asegúrate de escribir los datos correctamente..</div>');
 			return false;
 		}
 	});
@@ -28,6 +30,7 @@ $(document).ready(function(){
 				return false;
 			}
 			else{
+				$(document.getElementById("pass_coincidencia")).remove();
 				$("#registrar_pass").val(CryptoJS.SHA512($('#registrar_pass').val()));
 				ajaxDatos("/registrarSend","form-registrar");
 			}
