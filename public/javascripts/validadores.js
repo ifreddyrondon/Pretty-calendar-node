@@ -1,12 +1,11 @@
 $(document).ready(function(){
 //Ppal Validados-------------------------------------------------------
+	var error;
 	function validator(stringError,funciones,id,min){
-		var error;
-		if(stringError=='name') error="Debe colocar su nombre y apellido";
+		if(stringError=='name') error="Debe colocar su nombre y apellido. ¿Quieres volver a intentarlo?";
 		if(stringError=='correo') error="Email invalido. ¿Quieres volver a intentarlo?";
 		if(stringError=='ci') error="Formato de Cedula incorrecto. Vuelve a intentarlo tomando como ejemplo: V12345678, E12345678";
 		if(stringError=='pass') error="Las contraseñas cortas son fáciles de adivinar. Vuelve a intentarlo utilizando como mínimo 6 caracteres.";
-		
 		if (validar(funciones,id,min)){
 			document.getElementById(id).style.backgroundImage="url('images/check.png')";
 	  	document.getElementById(id).style.backgroundRepeat="no-repeat";
@@ -164,10 +163,9 @@ $(document).ready(function(){
 			}
 		});
 	}
+	function focusEmpty(id){document.getElementById(id).value=''}
 	window.ajaxNormal=ajaxNormal;	
 	window.ajaxDatos=ajaxDatos;	
-	window.ajaxDatosReload=ajaxDatosReload;	
-	
-	function focusEmpty(id){document.getElementById(id).value=''}
+	window.ajaxDatosReload=ajaxDatosReload;		
 	window.focusEmpty=focusEmpty;	
 });
