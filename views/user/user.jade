@@ -1,0 +1,23 @@
+.panel_left.border_left_7(align="center")
+	<br /><br />
+	.button_wrapper
+		.button_underneath.button_underneath_2
+			a(href="#", class="button", style="width: 117px") Nueva cita
+	.button_wrapper
+		.button_underneath.button_underneath_2
+			a(href="#", class="button", style="width: 117px") Pacientes
+.calendario
+	.left_calendario
+		.day_big_view	#{hoy.dia} 
+		.day_completa_view	#{hoy.completa} <br /> #{hoy.ano}
+#datepicker
+
+script
+	$('#datepicker').datepicker({
+		inline: true,
+		firstDay: 1,
+		showOtherMonths: false,
+		dayNamesMin: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'],
+		dateFormat: 'dd/mm/yy',
+	});
+	

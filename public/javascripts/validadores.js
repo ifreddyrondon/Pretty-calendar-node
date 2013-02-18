@@ -138,8 +138,8 @@ $(document).ready(function(){
 		else return false;	
 	}
 //----AJAX----------------------------------------------------------------------------------
-	function ajaxNormal(url,datos,reload){
-		$("#wrapper").fadeOut('fast');
+	function ajaxNormal(url,datos,reload,renderID){
+		$(document.getElementById(renderID)).fadeOut('fast');
 		$.ajax({
 	  	type: 'POST',
 			url: url,
@@ -153,7 +153,12 @@ $(document).ready(function(){
 	      	alert("error");
 	    	else {
 		    	if(reload)	window.location = res;
-		    	else	$("#wrapper").html(res).fadeIn('fast');
+		    	else {
+			    	if(renderID)
+			    		$(document.getElementById(renderID)).html(res).fadeIn('fast');
+			    	else
+			    		alert("Error");
+		    	}
 	    	}
 			}
 		});
@@ -198,6 +203,7 @@ $(document).ready(function(){
 
 	function errorHandler(id){
 		if(id=="form-login")	stringHandlerError = "Puedes entrar con cualquier dirección de correo electrónico. Por favor, asegúrate de escribir los datos correctamente..";
+		if(id=="form-registrar")	stringHandlerError = "¡Vaya! Se ha producido un error, inténtalo de nuevo en unos segundos";
 		
 		if(document.getElementById(id+'-error') == null)
 	  		$('.error').append('<div id="'+id+'-error"><font size="5">* </font>'+stringHandlerError+'</div>');

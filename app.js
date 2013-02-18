@@ -31,13 +31,16 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/logout', user.logout);
 app.post('/', alluser.login);
 app.post('/registrar', alluser.registrar);
 app.post('/registrarSend', alluser.registrarSend);
 app.post('/disponibilidad/email', alluser.disponibilidadEmail);
 app.post('/disponibilidad/ci', alluser.disponibilidadCi);
 app.post('/loginSend', alluser.loginSend);
+//USER
+app.post('/user', user.index);
+app.get('/logout', user.logout);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

@@ -1,10 +1,10 @@
 $(document).ready(function(){
 	routie({
 		'': function(){
-			ajaxNormal("/");
+			ajaxNormal("/",null,null,"wrapper");
 		},
 		'registrar': function(){
-			ajaxNormal("/registrar");
+			ajaxNormal("/registrar",null,null,"wrapper");
 		},
 	});
 });

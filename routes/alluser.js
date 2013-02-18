@@ -102,8 +102,7 @@ exports.registrarSend = function(req, res){
 			}
 		  else {
 			  objBD.end();
-			  //res.send('0'); 
-			  console.log("REGISTRADO");
+			  res.render('login');
 		  }
 		});
 		
@@ -148,7 +147,7 @@ exports.loginSend = function(req, res){
 	        };
 	        req.session.regenerate(function(){
 			      req.session.user = user;
-			      res.render('layout', { sesion: req.session.user });
+			      res.send('/');
 		      });
 		      objBD.end();
 				}
