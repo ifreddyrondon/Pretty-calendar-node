@@ -208,5 +208,18 @@ $(document).ready(function(){
 		if(document.getElementById(id+'-error') == null)
 	  		$('.error').append('<div id="'+id+'-error"><font size="5">* </font>'+stringHandlerError+'</div>');
 	}
-	window.errorHandler=errorHandler;	
+	window.errorHandler=errorHandler;
+	function spanishDate(d){
+		var weekday=["domingo","lunes","martes","miercoles","jueves","viernes","sabado"];
+		var monthname=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+		return weekday[d.getDay()]+", "+d.getDate()+" de "+monthname[d.getMonth()];
+	}
+	function sendDate(){
+		d = $("#datepicker").datepicker("getDate");
+		$('.day_big_view').html(d.getDate());
+		$('.day_completa_view').html(spanishDate(d)+"<br />"+d.getFullYear());
+	}	
+	window.spanishDate=spanishDate;
+	window.sendDate=sendDate;
+	
 });

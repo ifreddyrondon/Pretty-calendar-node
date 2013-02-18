@@ -10,7 +10,7 @@ input[type=checkbox]{visibility: hidden}
 #user_container{width:95%;height:90%;position:absolute;overflow:auto;left:0;right:0;top:12px;bottom:0;margin: auto;
 background:url('../images/_bg7.png');box-shadow:inset 0 0px 6px 2px #000000;}
 .panel_left{float:left;background:url('../images/bg2.png');height:100%;width:185px;}
-.calendario{float:left;height:200px}
+.calendario{float:left;height:200px;width:273px}
 .left_calendario{padding-left:25px}
 /*------FONT ---------------------------------------------------*/
 h1.insetType{padding-left:50px;padding-top:17px;font-family:Rockwell,Georgia,"Times New Roman",Times,serif;font-size: 50px;color:rgba(0,0,0,0.5);text-shadow:rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;}
