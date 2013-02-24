@@ -218,6 +218,7 @@ $(document).ready(function(){
 		d = $("#datepicker").datepicker("getDate");
 		$('.day_big_view').html(d.getDate());
 		$('.day_completa_view').html(spanishDate(d)+"<br />"+d.getFullYear());
+		ajaxNormal("/getEvents","date="+d,null,"wrapper");
 	}	
 	window.spanishDate=spanishDate;
 	window.sendDate=sendDate;

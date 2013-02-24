@@ -2,16 +2,22 @@
 html, body {height: 100%;overflow: hidden}
 a{text-decoration:none}
 input[type=checkbox]{visibility: hidden}
-#wrapper{position:absolute;overflow:auto;left:0;right:0;top:0;bottom:0;box-shadow:inset 0 0 490px black;background:url('../images/bg.jpg')}
+#wrapper{position:absolute;overflow:auto;left:0;right:0;top:0;bottom:0;box-shadow:inset 0 0 490px black;background:url('../images/bg2.png')}
 #footer {position:absolute;bottom:0;width:100%;height:20px;}
 #footer_left{position:absolute;left:5px}#footer_right{position: absolute;right:3px}
 .link_right_top_container{position:absolute;right:50px;top:30px}
 .link_right_top_user_container{position:absolute;right:40px;top:8px}
 #user_container{width:95%;height:90%;position:absolute;overflow:auto;left:0;right:0;top:12px;bottom:0;margin: auto;
-background:url('../images/_bg7.png');box-shadow:inset 0 0px 6px 2px #000000;}
-.panel_left{float:left;background:url('../images/bg2.png');height:100%;width:185px;}
+background:url('../images/usr_container2.png');-webkit-box-shadow:inset 0 0px 6px 2px #000000;-moz-box-shadow:inset 0 0px 6px 2px #000000;box-shadow:inset 0 0px 6px 2px #000000}
+.panel_left{float:left;background:url('../images/left_container.png');height:100%;width:185px;}
 .calendario{float:left;height:200px;width:273px}
 .left_calendario{padding-left:25px}
+#eventos{position:absolute;top:200px;left:200px;width:525px;
+
+	height: -moz-calc(100% - 215px);height: -webkit-calc(100% - 215px);height: calc(100% - 215px);
+	background-color:#ffffff;
+	-webkit-box-shadow:inset 0 0px 5px 1px #000000;-moz-box-shadow:inset 0 0px 5px 1px #000000;box-shadow:inset 0 0px 5px 1px #000000;
+}
 /*------FONT ---------------------------------------------------*/
 h1.insetType{padding-left:50px;padding-top:17px;font-family:Rockwell,Georgia,"Times New Roman",Times,serif;font-size: 50px;color:rgba(0,0,0,0.5);text-shadow:rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;}
 h3.insetType{font-family:Rockwell,Georgia,"Times New Roman",Times,serif;color:rgba(0,0,0,0.5);text-shadow:rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px,rgba(255,255,255,0.5) 0 1px,rgba(0,0,0,0.3) -1px -2px}
@@ -35,6 +41,7 @@ font-size:16px;font-family: Rockwell, Georgia, "Times New Roman", Times, serif;c
 .border_bottom_6{-webkit-border-bottom-right-radius: 6px;-webkit-border-bottom-left-radius: 6px;-moz-border-radius-bottomright: 6px;-moz-border-radius-bottomleft: 6px;border-bottom-right-radius: 6px;border-bottom-left-radius: 6px}
 .border_campos{-webkit-border-radius:16px;-moz-border-radius:16px;border-radius:16px}
 .border_user{-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
+.border_min{-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}
 .border_left_7{-webkit-border-top-left-radius:7px;-webkit-border-bottom-left-radius:7px;-moz-border-radius-topleft:7px;-moz-border-radius-bottomleft:7px;border-top-left-radius:7px;border-bottom-left-radius:7px;}
 /*---CAMPOS--------------------------*/
 .campos_titulos{padding:4px}
@@ -42,7 +49,7 @@ font-size:16px;font-family: Rockwell, Georgia, "Times New Roman", Times, serif;c
 .campos_middle{-moz-box-shadow:inset 5px 3px 2px -3px #111,inset -5px 0px 2px -3px #111;-webkit-box-shadow:inset 5px 3px 2px -3px #111,inset -5px 0px 2px -3px #111;box-shadow:inset 5px 3px 2px -3px #111,inset -5px 0px 2px -3px #111;}
 .campos_bottom{-webkit-box-shadow:inset 0px -2px 2px 2px #111;-moz-box-shadow:inset 0px -2px 2px 2px #111;box-shadow:inset 0px -2px 2px 2px #111;}
 .campos{width:150px;padding:6px 15px 6px 35px;height:20px;border-style:groove;border-width:0px;background-color:transparent;outline:none;font:100 12px Arial,Helvetica,Sans-serif;color:#000000;text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);-webkit-transition: all 0.7s ease 0s;-moz-transition: all 0.7s ease 0s;-o-transition: all 0.7s ease 0s;transition: all 0.7s ease 0s;}
-.campos:focus{color:#222222;width:165px;text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);}
+.campos:focus{color:#222222;height:30px;text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);}
 /*---BOTON---------------------------*/
 .button_wrapper {	width: 100%;	float: left	}
 .button, .button_underneath {	font-weight: bold;	font-family: "Lobster", cursive;	font-size: 15px;	}

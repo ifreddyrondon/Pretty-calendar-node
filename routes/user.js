@@ -12,7 +12,7 @@ exports.index = function(req, res){
 			completa	: spanishDate(d),
 			ano				: d.getFullYear(),
 		}
-		res.render('user/user', { hoy: hoy });
+		res.render('user/user',{eventos : "evento"});
 	}
 }
 exports.logout = function(req, res){
@@ -21,5 +21,15 @@ exports.logout = function(req, res){
 	 	if (err)	res.send('A ocurrido un error, vuelva a intentarlo mas tarde');
 	  else	res.redirect('/');
 	  });
+	}
+}
+exports.getEvents = function(req, res){
+	if (req.session.user){
+		console.log(req.body.date);
+	}
+}
+exports.newEvent = function(req, res){
+	if (req.session.user){
+		res.render('user/new_event');
 	}
 }

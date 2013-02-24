@@ -2,7 +2,7 @@
 .day_big_view{font-size:135px;color:#999999;font-family:serif;padding:0px;font-weight:100}
 .day_completa_view{font-size:20px;color:#999999;font-family:sans-serif;font-weight:100;margin-top:-20px}
 /*DATAPICKER*/
-.ui-datepicker{float: left;width: 230px;height:auto;margin: 20px 28px 0;font: 9pt Arial, sans-serif}
+.ui-datepicker{float:left;width:230px;height:auto;margin:20px 28px 0;font:9pt Arial,sans-serif}
 .ui-datepicker a{text-decoration:none}
 .ui-datepicker table{width:100%}
 .ui-datepicker-header{display:none}  

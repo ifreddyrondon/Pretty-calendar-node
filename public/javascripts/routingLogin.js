@@ -3,5 +3,8 @@ $(document).ready(function(){
 		'': function(){
 			ajaxNormal("/user",null,null,"user_container");
 		},
+		'new_event': function(){
+			ajaxNormal("/newEvent",null,null,"user_container");
+		},
 	});
 });
