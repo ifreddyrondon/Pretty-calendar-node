@@ -7,16 +7,18 @@ exports.registrar = function(req, res){
 	res.render('registrar');
 }
 exports.disponibilidadEmail = function(req, res){
-	objBD = BD.BD();
-	objBD.connect();
 	try {
 		check(req.body.email).notNull().len(6, 64).isEmail();
 		email = sanitize(req.body.email).trim(); 	
 		email = sanitize(email).xss();
 		email = sanitize(email).entityDecode();
+		
+		objBD = BD.BD();
+		objBD.connect();
 		objBD.query("SELECT email FROM persona WHERE email = "+ objBD.escape(email) +"", 
 		function(err, rows, fields) {
 	    if (err){
+	    	console.log(err);
 				objBD.end();
 				res.send('1'); 
 			}
@@ -37,16 +39,18 @@ exports.disponibilidadEmail = function(req, res){
 	}
 }
 exports.disponibilidadCi = function(req, res){
-	objBD = BD.BD();
-	objBD.connect();
 	try {
 		check(req.body.cedula).notNull().len(7, 10);
 		ci = sanitize(req.body.cedula).trim(); 	
 		ci = sanitize(ci).xss();
 		ci = sanitize(ci).entityDecode();
+		
+		objBD = BD.BD();
+		objBD.connect();
 		objBD.query("SELECT cedula FROM persona WHERE cedula = "+ objBD.escape(ci) +"", 
 		function(err, rows, fields) {
 	    if (err){
+	    	console.log(err);
 				objBD.end();
 				res.send('1'); 
 			}
@@ -67,8 +71,6 @@ exports.disponibilidadCi = function(req, res){
 	}
 }
 exports.registrarSend = function(req, res){
-	objBD = BD.BD();
-	objBD.connect();
 	try {
     check(req.body.registrar_nombre).notNull();
 	  check(req.body.registrar_email).notNull().len(6, 64).isEmail();
@@ -94,9 +96,13 @@ exports.registrarSend = function(req, res){
 		pass= crypto.createHash('sha256').update(pass).digest("hex");
 		pass= pass.substr(0,1)+"u"+pass.substr(2,pass.length/2)+"se"+pass.substr(pass.length/2)+"r";
 		
+		
+		objBD = BD.BD();
+		objBD.connect();
 		objBD.query("INSERT INTO persona(email,nombre,cedula,password) VALUES ("+objBD.escape(registrar_email)+","+objBD.escape(registrar_nombre)+","+objBD.escape(registrar_cedula)+","+objBD.escape(pass)+")", 
   	function(err, result){
 			if (err){
+				console.log(err);
 				objBD.end();
 				res.send('1'); 
 			}
@@ -115,8 +121,6 @@ exports.login = function(req, res){
 	res.render('login');
 }
 exports.loginSend = function(req, res){
-	objBD = BD.BD();
-	objBD.connect();
 	try {
 	  check(req.body.login_user).notNull().len(6, 64).isEmail();
 	  check(req.body.login_pass).notNull();
@@ -132,9 +136,12 @@ exports.loginSend = function(req, res){
 		pass= crypto.createHash('sha256').update(pass).digest("hex");
 		pass= pass.substr(0,1)+"u"+pass.substr(2,pass.length/2)+"se"+pass.substr(pass.length/2)+"r";
 		
+		objBD = BD.BD();
+		objBD.connect();
 		objBD.query("SELECT id_persona, nombre, tipo FROM persona WHERE email = "+ objBD.escape(login_user) +" AND password = "+ objBD.escape(pass) +"",
 		function(err, rows, fields) {
 	    if (err){
+	    	console.log(err);
 				objBD.end();
 				res.send('1'); 
 			}							

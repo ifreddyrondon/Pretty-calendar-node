@@ -8,7 +8,7 @@ $(document).ready(function(){
 		if($('#login_user').val()!='Correo/Email' && $('#login_pass_temp').css("display")=="none" && validator("correo","IsCorreo","login_user")){
 			$(document.getElementById("err_btn_login")).remove();
 			$("#login_pass").val(CryptoJS.SHA512($('#login_pass').val()));
-			ajaxDatosReload("/loginSend","form-login");
+			ajaxDatosReload("/loginSend","form-login","form-login_inv");
 		}
 		else{
 			errorHandler('form-login');

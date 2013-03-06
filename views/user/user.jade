@@ -11,10 +11,16 @@
 		.day_big_view
 		.day_completa_view
 #datepicker
-#eventos.border_min #{eventos} bla bla bla bla lorem ipsu es una ladilla y yo no se que mas copiar aqui, recordar investigar sobre proyecto de compiladores, tambien estudiar para Sistemas Operativos, primer parcial de teoria, seguir haciendo proyecto de Inteligencia artificial, goooo
-
+#eventos.border_min
+	if (eventos)
+		-for (var i=0; i<eventos.length; i++)
+			div #{eventos[i]['nombre']}
+	else
+		.nada_q_hacer
+			div No tienes nada que hacer
+			div Sugerencias
 script
-	d = new Date();
+	var	d;
 	$('#datepicker').datepicker({
 		inline: true,
 		firstDay: 1,
@@ -23,6 +29,12 @@ script
 		dateFormat: 'dd/mm/yy',
 		onSelect: sendDate,
 	});
+	if(window.location.hash){
+		hash = window.location.hash.substring(1).substr(7);
+		d = new Date(hash); 
+	}
+	else {
+		d = new Date(); 
+	}
 	$('.day_big_view').html(d.getDate());
 	$('.day_completa_view').html(spanishDate(d)+"<br />"+d.getFullYear());
-	

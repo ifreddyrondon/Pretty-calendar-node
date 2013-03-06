@@ -157,7 +157,7 @@ $(document).ready(function(){
 			    	if(renderID)
 			    		$(document.getElementById(renderID)).html(res).fadeIn('fast');
 			    	else
-			    		alert("Error");
+			    		alert("No RENDER");
 		    	}
 	    	}
 			}
@@ -179,7 +179,7 @@ $(document).ready(function(){
 			}
 		});
 	}
-	function ajaxDatosReload(url,id){
+	function ajaxDatosReload(url,id,error_id){
 		$(document.getElementById(id)).ajaxForm({
 	  	type: 'POST',
 			url: url,
@@ -189,7 +189,10 @@ $(document).ready(function(){
 	    success: function(res){
 	    	$("#bowlG").hide();
 	    	if (res == '1')
-	      	alert("error");
+	    		if(error_id)
+		      	errorHandler(error_id);
+		      else
+		      	alert("Error");
 	    	else 
 	        window.location = res;
 			}
@@ -203,6 +206,7 @@ $(document).ready(function(){
 
 	function errorHandler(id){
 		if(id=="form-login")	stringHandlerError = "Puedes entrar con cualquier dirección de correo electrónico. Por favor, asegúrate de escribir los datos correctamente..";
+		if(id=="form-login_inv")	stringHandlerError = "<h3>Datos invalidos!</h3> <br />Puedes entrar con cualquier dirección de correo electrónico. Por favor, asegúrate de escribir los datos correctamente..";
 		if(id=="form-registrar")	stringHandlerError = "¡Vaya! Se ha producido un error, inténtalo de nuevo en unos segundos";
 		
 		if(document.getElementById(id+'-error') == null)
@@ -218,7 +222,7 @@ $(document).ready(function(){
 		d = $("#datepicker").datepicker("getDate");
 		$('.day_big_view').html(d.getDate());
 		$('.day_completa_view').html(spanishDate(d)+"<br />"+d.getFullYear());
-		ajaxNormal("/getEvents","date="+d,null,"wrapper");
+		window.location = '/#events/'+d;
 	}	
 	window.spanishDate=spanishDate;
 	window.sendDate=sendDate;
