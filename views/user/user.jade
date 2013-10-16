@@ -2,7 +2,7 @@
 	<br /><br />
 	.button_wrapper
 		.button_underneath.button_underneath_2
-			a(href="#new_event", class="button", style="width: 117px") Nueva cita
+			a(href="#", class="button", style="width: 117px", id="new_event_link") Nuevo
 	.button_wrapper
 		.button_underneath.button_underneath_2
 			a(href="#", class="button", style="width: 117px") Pacientes
@@ -19,6 +19,20 @@
 		.nada_q_hacer
 			div No tienes nada que hacer
 			div Sugerencias
+#new_event
+	img(id="icon_new_event", src="images/new_event.png")
+	form(id="form-new_event")
+		#date_desde
+		#date_input
+			input(id="date_desde_input", name="date_desde", type="text", value="", class="campos_event ipt_font")		
+			input(id="date_hasta_input", name="date_hasta", type="text", value="", class="campos_event ipt_font")				
+		#new_event_ipt_container
+			br
+			br
+			br
+			br
+			br
+			input(id="nombre_new_event", name="nombre_new_event", type="text", value="Nombre...", class="campos_event ipt_font")			
 script
 	var	d;
 	$('#datepicker').datepicker({
@@ -29,12 +43,29 @@ script
 		dateFormat: 'dd/mm/yy',
 		onSelect: sendDate,
 	});
+	$('#date_desde').datepicker({	
+		showOn: 'both', buttonImage: 'images/new_event.png', buttonImageOnly: true,
+		autoSize: true,
+		showOptions: { direction: "up" },
+		firstDay: 1,
+		minDate: 0,
+		dayNamesMin: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'],
+		monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+		monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+		dateFormat: 'dd/mm/yy',
+	});
 	if(window.location.hash){
 		hash = window.location.hash.substring(1).substr(7);
 		d = new Date(hash); 
+		$("#datepicker").datepicker("setDate",d);
 	}
 	else {
 		d = new Date(); 
 	}
 	$('.day_big_view').html(d.getDate());
 	$('.day_completa_view').html(spanishDate(d)+"<br />"+d.getFullYear());
+	$('#new_event').fold();
+	
+	$('#date_desde').focusin(function(){
+		$('#date_desde').datepicker('widget').css({left:"-=200",top:"-=100"});
+	});

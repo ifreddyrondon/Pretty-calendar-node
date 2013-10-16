@@ -43,25 +43,16 @@ exports.getEvents = function(req, res){
 				    res.render('user/user',{eventos : rows });
 						objBD.end();					
 					}
-					else
-						res.render('user/user',{eventos : null});
+					else{
+						res.render('user/user',{eventos : null});	
+						objBD.end();
+					}
 				}  
 			});
 		} catch (e) {
 		  res.send('1'); 
 		  console.log(e.message);
-		}
-		
-		
+		}	
 	}
 }
 
-
-
-
-
-exports.newEvent = function(req, res){
-	if (req.session.user){
-		res.render('user/new_event');
-	}
-}
