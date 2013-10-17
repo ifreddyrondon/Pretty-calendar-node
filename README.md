@@ -11,7 +11,7 @@ Aplicación web para el manejo de un calendario con interfaz minimalista y regis
 Debes tener instalado [Node.js](http://nodejs.org/) y [Mysql](http://www.mysql.com/) para poder correr la aplicación
 
 ## ¿Cómo ejecuto la aplicación?
-  1.	Inicializar el servidor Mysql
-  2.	Cargar la base de datos dentro de la carpeta BDBackup en tu manejador
+  1.	Inicializar el servidor [Mysql](http://www.mysql.com/)
+  2.	Cargar la base de datos dentro de la carpeta BDBackup/spantons_dr.sql en tu manejador
   3.	Corres tu aplicacion: `node app.js`
   4.	Abres en tu navegador [localhost:3000](http://localhost:3000)
