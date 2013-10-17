@@ -13,5 +13,5 @@ Debes tener instalado [Node.js](http://nodejs.org/) y [Mysql](http://www.mysql.c
 ## ¿Cómo ejecuto la aplicación?
   1.	Inicializar el servidor [Mysql](http://www.mysql.com/)
   2.	Cargar la base de datos dentro de la carpeta BDBackup/spantons_dr.sql en tu manejador
-  3.	Corres tu aplicacion: `node app.js`
+  3.	Corres tu aplicación: `node app.js`
   4.	Abres en tu navegador [localhost:3000](http://localhost:3000)
