@@ -15,3 +15,12 @@ Debes tener instalado [Node.js](http://nodejs.org/) y [Mysql](http://www.mysql.c
   2.	Cargar la base de datos dentro de la carpeta BDBackup/spantons_dr.sql en tu manejador
   3.	Corres tu aplicación: `node app.js`
   4.	Abres en tu navegador [localhost:3000](http://localhost:3000)
+
+## ScreenShots
+![login](https://dl.dropbox.com/s/zcp7z1526098b8y/Captura%20de%20pantalla%202013-10-23%20a%20la%28s%29%2023.17.50.png)
+
+![registro](https://dl.dropbox.com/s/lqqdaxeh761pp71/Captura%20de%20pantalla%202013-10-23%20a%20la%28s%29%2023.18.04.png)
+
+![principal](https://dl.dropbox.com/s/g49jyi1voaevq9w/Captura%20de%20pantalla%202013-10-23%20a%20la%28s%29%2023.34.05.png)
+
+![nuevo evento](https://dl.dropbox.com/s/jj36q8plbalav74/Captura%20de%20pantalla%202013-10-23%20a%20la%28s%29%2023.34.18.png)
