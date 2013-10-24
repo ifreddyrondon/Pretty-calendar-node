@@ -1,6 +1,6 @@
 # pretty-calendar-node.js
 
-### [pretty-calendar-node.js](http://spantons.github.io/pretty-calendar-node)
+### [pretty-calendar-node.js](http://spantons.github.io/Pretty-calendar-node)
 
 **Interfaz de un calendario con registro de usuario en Mysql, hecho con Jade y node.js**
 
