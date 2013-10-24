@@ -1,4 +1,4 @@
-# pretty-calendar-node.js
+# Pretty-calendar-node.js
 
 ### [pretty-calendar-node.js](http://spantons.github.io/Pretty-calendar-node)
 
